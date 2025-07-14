@@ -35,10 +35,16 @@ namespace RefitDemo
 
             // 示例1: 获取所有帖子
             Console.WriteLine("获取所有帖子...");
-            var posts = await api.GetPostsAsync();
-            Console.WriteLine($"获取到 {posts.Count} 个帖子\n");
-
-            postList.ItemsSource = posts;
+            try
+            {
+                var posts = await api.GetPostsAsync();
+                Console.WriteLine($"获取到 {posts.Count} 个帖子\n");
+                postList.ItemsSource = posts;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             // 示例2: 获取单个帖子
             Console.WriteLine("获取单个帖子 (ID=1)...");

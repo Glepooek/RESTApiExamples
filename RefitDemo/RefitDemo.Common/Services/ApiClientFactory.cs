@@ -12,9 +12,10 @@ namespace RefitDemo.Common.Services
     {
         public static T Create<T>(string baseUrl)
         {
-            var httpClient = new HttpClient(new HttpClientHandler
+            var httpClient = new HttpClient(new HttpClientHandler()
             {
-                UseProxy = false
+                // Uncomment the following line to disable proxy usage
+                // UseProxy = false
             })
             {
                 BaseAddress = new Uri(baseUrl),
